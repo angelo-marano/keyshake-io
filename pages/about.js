@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import content from '../content/home.md';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -87,19 +85,7 @@ export default function About() {
       <Container maxWidth="lg">
         <main>
           <Paper className={classes.mainFeaturedPost}>
-            {/* Increase the priority of the hero background image */}
-            {
-              <img
-                src="https://source.unsplash.com/user/erondu"
-                alt="background"
-              />
-            }
-            <div className={classes.overlay} />
-            <Grid container>
-              <Grid item md={6}>
-                <div className={classes.mainFeaturedPostContent} />
-              </Grid>
-            </Grid>
+            <div className={classes.overlay}>Hello, world!</div>
           </Paper>
         </main>
       </Container>

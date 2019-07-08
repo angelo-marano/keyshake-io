@@ -13,3 +13,8 @@ collections:
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Slogan', name: 'slogan', widget: 'string' }
           - { label: 'About', name: 'about', widget: 'string' }
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: 'keyshake-io'
+    api_key: '949386113239773'
