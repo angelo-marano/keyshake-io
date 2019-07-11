@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors';
-import { textAlign } from '@material-ui/system';
+import { withStyles } from '@material-ui/core/styles';
+import content from '../content/home.md';
 
 const styles = theme => ({
   toolbar: {
@@ -14,6 +13,19 @@ const styles = theme => ({
   topImageContainer: {
     margin: '0px !important',
     padding: '0px !important'
+  },
+
+  title: {
+    position: 'relative',
+    top: '2%',
+    left: '2%',
+    textAlign: 'left'
+  },
+  slogan: {
+    position: 'relative',
+    top: '3%',
+    left: '2%',
+    textAlign: 'left'
   },
   featureImage: {
     position: 'relative',
@@ -27,7 +39,7 @@ const styles = theme => ({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    height: '550px',
+    height: '400px',
     width: '100%'
   },
   overlay: {
@@ -42,12 +54,15 @@ const styles = theme => ({
     padding: theme.spacing(6, 0)
   },
   aboutText: {
-    color: '#FF8C00'
+    textAlign: 'center'
   }
 });
 
 function About(props) {
   const { classes } = props;
+  const {
+    attributes: { slogan, about }
+  } = content;
 
   return (
     <React.Fragment>
@@ -55,37 +70,26 @@ function About(props) {
       <Container maxWidth={false} className={classes.topImageContainer}>
         <main>
           <Paper className={classes.featureImage}>
-            <div className={classes.overlay}>
-              <Typography variant="h1">Keyshake</Typography>
-              <Typography variant="h4">
-                Technology Solutions. Done Better.
-              </Typography>
-            </div>
+            <Typography variant="h2" className={classes.title}>
+              Keyshake
+            </Typography>
+            <Typography className={classes.slogan} variant="h5">
+              {slogan}
+            </Typography>
           </Paper>
         </main>
       </Container>
-      <Container maxWidth="lg">
-        <Typography variant="h5" className={classes.aboutText}>
-          At Keyshake we are experts in software development and architecture.
-          Our professionals have years of proven, real world experience
-          utilizing the highest standards and best practices implementing
-          technology in a variety of industries including healthcare, education,
-          NGOs, sports management, telecommunications, entertainment,
-          transportation, aerospace and defense.
+      <Container maxWidth="md">
+        <Typography variant="h3" className={classes.aboutText}>
+          About Us
+        </Typography>
+        <Typography variant="body1" className={classes.aboutText}>
+          {about}
         </Typography>
       </Container>
       {/* Footer */}
       <footer className={classes.footer}>
-        <Container maxWidth={false}>
-          <Typography
-            variant="subtitle1"
-            align="center"
-            color="textSecondary"
-            component="p"
-          >
-            Love you. Love everyone.
-          </Typography>
-        </Container>
+        <Container maxWidth={false} />
       </footer>
       {/* End footer */}
     </React.Fragment>
