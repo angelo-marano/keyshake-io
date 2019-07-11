@@ -3,105 +3,87 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { green } from '@material-ui/core/colors';
+import { textAlign } from '@material-ui/system';
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`
   },
-  toolbarTitle: {
-    flex: 1
+  topImageContainer: {
+    margin: '0px !important',
+    padding: '0px !important'
   },
-  toolbarSecondary: {
-    justifyContent: 'space-between',
-    overflowX: 'auto'
-  },
-  toolbarLink: {
-    padding: theme.spacing(1),
-    flexShrink: 0
-  },
-  mainFeaturedPost: {
+  featureImage: {
     position: 'relative',
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
-    backgroundImage: 'url(https://source.unsplash.com/user/erondu)',
+    backgroundImage: `linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.4)
+    ), url(https://res.cloudinary.com/keyshake-io/image/upload/v1562854178/black-and-white-dark-keys-792031_d3q2p0.jpg)`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center'
+    backgroundPosition: 'center',
+    height: '550px',
+    width: '100%'
   },
   overlay: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    backgroundColor: 'rgba(0,0,0,.3)'
-  },
-  mainFeaturedPostContent: {
     position: 'relative',
-    padding: theme.spacing(3),
-    [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(6),
-      paddingRight: 0
-    }
-  },
-  mainGrid: {
-    marginTop: theme.spacing(3)
-  },
-  card: {
-    display: 'flex'
-  },
-  cardDetails: {
-    flex: 1
-  },
-  cardMedia: {
-    width: 160
-  },
-  markdown: {
-    ...theme.typography.body2,
-    padding: theme.spacing(3, 0)
-  },
-  sidebarAboutBox: {
-    padding: theme.spacing(2),
-    backgroundColor: theme.palette.grey[200]
-  },
-  sidebarSection: {
-    marginTop: theme.spacing(3)
+    top: '30%',
+    margin: '0 auto',
+    textAlign: 'center'
   },
   footer: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.primary,
     marginTop: theme.spacing(8),
     padding: theme.spacing(6, 0)
+  },
+  aboutText: {
+    color: '#FF8C00'
   }
-}));
+});
 
-export default function About() {
-  const classes = useStyles();
+function About(props) {
+  const { classes } = props;
 
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="lg">
+      <Container maxWidth={false} className={classes.topImageContainer}>
         <main>
-          <Paper className={classes.mainFeaturedPost}>
-            <div className={classes.overlay}>Hello, world!</div>
+          <Paper className={classes.featureImage}>
+            <div className={classes.overlay}>
+              <Typography variant="h1">Keyshake</Typography>
+              <Typography variant="h4">
+                Technology Solutions. Done Better.
+              </Typography>
+            </div>
           </Paper>
         </main>
       </Container>
+      <Container maxWidth="lg">
+        <Typography variant="h5" className={classes.aboutText}>
+          At Keyshake we are experts in software development and architecture.
+          Our professionals have years of proven, real world experience
+          utilizing the highest standards and best practices implementing
+          technology in a variety of industries including healthcare, education,
+          NGOs, sports management, telecommunications, entertainment,
+          transportation, aerospace and defense.
+        </Typography>
+      </Container>
       {/* Footer */}
       <footer className={classes.footer}>
-        <Container maxWidth="lg">
-          <Typography variant="h6" align="center" gutterBottom>
-            Footer
-          </Typography>
+        <Container maxWidth={false}>
           <Typography
             variant="subtitle1"
             align="center"
             color="textSecondary"
             component="p"
           >
-            Something here to give the footer a purpose!
+            Love you. Love everyone.
           </Typography>
         </Container>
       </footer>
@@ -109,3 +91,5 @@ export default function About() {
     </React.Fragment>
   );
 }
+
+export default withStyles(styles)(About);

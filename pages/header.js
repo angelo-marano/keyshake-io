@@ -1,18 +1,18 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-const useStyles = makeStyles({
+const styles = theme => ({
   root: {
     flexGrow: 1,
     margin: 0
   }
 });
 
-const Header = () => {
-  const classes = useStyles();
+const Header = props => {
+  const { classes } = props;
 
   return (
     <div className={classes.root}>
@@ -23,4 +23,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withStyles(styles)(Header);
