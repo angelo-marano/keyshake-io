@@ -5,13 +5,15 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';
 import content from '../content/home.md';
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
 
 const styles = theme => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`
   },
   topImageContainer: {
-    margin: '0px !important',
+    margin: '0 20px 0 0',
     padding: '0px !important'
   },
 
@@ -54,7 +56,17 @@ const styles = theme => ({
     padding: theme.spacing(6, 0)
   },
   aboutText: {
-    textAlign: 'center'
+    textAlign: 'center',
+    marginBottom: '20px'
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary
+  },
+  divider: {
+    marginBottom: '10px',
+    marginTop: '10px'
   }
 });
 
@@ -86,6 +98,20 @@ function About(props) {
         <Typography variant="body1" className={classes.aboutText}>
           {about}
         </Typography>
+      </Container>
+      <Divider className={classes.divider} variant="middle" />
+      <Container maxWidth="lg">
+        <Grid container spacing={3}>
+          <Grid item xs>
+            <Paper className={classes.paper}>xs</Paper>
+          </Grid>
+          <Grid item xs>
+            <Paper className={classes.paper}>xs</Paper>
+          </Grid>
+          <Grid item xs>
+            <Paper className={classes.paper}>xs</Paper>
+          </Grid>
+        </Grid>
       </Container>
       {/* Footer */}
       <footer className={classes.footer}>
