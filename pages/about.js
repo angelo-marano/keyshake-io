@@ -7,6 +7,10 @@ import { withStyles } from '@material-ui/core/styles';
 import content from '../content/home.md';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Hidden from '@material-ui/core/Hidden';
 
 const styles = theme => ({
   toolbar: {
@@ -101,16 +105,28 @@ function About(props) {
       </Container>
       <Divider className={classes.divider} variant="middle" />
       <Container maxWidth="lg">
-        <Grid container spacing={3}>
-          <Grid item xs>
-            <Paper className={classes.paper}>xs</Paper>
-          </Grid>
-          <Grid item xs>
-            <Paper className={classes.paper}>xs</Paper>
-          </Grid>
-          <Grid item xs>
-            <Paper className={classes.paper}>xs</Paper>
-          </Grid>
+        <Grid container spacing={4} className={classes.cardGrid}>
+          <Grid item md={12}>
+        <Card className={classes.card}>
+                    <div className={classes.cardDetails}>
+                      <CardContent>
+                        <Typography component="h2" variant="h5">
+                          Hello
+                        </Typography>
+                        <Typography variant="subtitle1" color="primary">
+                          Continue reading...
+                        </Typography>
+                      </CardContent>
+                    </div>
+                    <Hidden xsDown>
+                      <CardMedia
+                        className={classes.cardMedia}
+                        image="https://source.unsplash.com/random"
+                        title="Image title"
+                      />
+                    </Hidden>
+                  </Card>
+                  </Grid>
         </Grid>
       </Container>
       {/* Footer */}
