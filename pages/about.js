@@ -104,31 +104,7 @@ function About(props) {
         </Typography>
       </Container>
       <Divider className={classes.divider} variant="middle" />
-      <Container maxWidth="lg">
-        <Grid container spacing={4} className={classes.cardGrid}>
-          <Grid item md={12}>
-        <Card className={classes.card}>
-                    <div className={classes.cardDetails}>
-                      <CardContent>
-                        <Typography component="h2" variant="h5">
-                          Hello
-                        </Typography>
-                        <Typography variant="subtitle1" color="primary">
-                          Continue reading...
-                        </Typography>
-                      </CardContent>
-                    </div>
-                    <Hidden xsDown>
-                      <CardMedia
-                        className={classes.cardMedia}
-                        image="https://source.unsplash.com/random"
-                        title="Image title"
-                      />
-                    </Hidden>
-                  </Card>
-                  </Grid>
-        </Grid>
-      </Container>
+
       {/* Footer */}
       <footer className={classes.footer}>
         <Container maxWidth={false} />
